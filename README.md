@@ -18,4 +18,4 @@ Here is the blog link descriping entire things https://krithikasharma2129.medium
 5. Copying k8s.conf file
 6. Start the kubeadm service by providing all the required parameters.
 7. We usually have a separate client who will use the kubectl command on the master, but just for testing, we can make the master the client/user. Now if you run the "kubectl" command, it will fail (we already have kubectl software in the system). The reason for the above issue is that the client doesn't know where the master is, so the client should know the port number of API, and username and password of the master, so to use this cluster as a normal user, we can copy some files in the HOME location, the files contain all the credentials of the master node.
-8. Install Add-ons
+8. Install Add-ons.
