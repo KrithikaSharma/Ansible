@@ -1,0 +1,3 @@
+# BEGIN ANSIBLE MANAGED BLOCK
+join_command: kubeadm join 172.31.7.222:6443 --token 1f6dfz.6haq4oqloawk8as1 --discovery-token-ca-cert-hash sha256:dba88bb2fff88e0033da2a4655ec1faeb2576ab585c79a987d971ab5c7263cf4 
+# END ANSIBLE MANAGED BLOCK

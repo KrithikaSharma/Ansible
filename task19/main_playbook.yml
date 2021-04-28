@@ -1,0 +1,19 @@
+- hosts: localhost 
+  roles: 
+    - aws_instances_launch
+
+- hosts: tag_Name_kube_master
+  roles: 
+    - Kubernetes_master
+  tasks: 
+  - name: refreshing the inventory
+    meta: refresh_inventory
+
+- hosts: tag_Name_kube_slave1
+  roles: 
+    - Kubernetes_slave
+
+
+- hosts: tag_Name_kube_slave2
+  roles: 
+    - Kubernetes_slave

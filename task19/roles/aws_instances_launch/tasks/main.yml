@@ -1,0 +1,58 @@
+---
+# tasks file for aws_instances_launch
+
+- name: installing boto on localhost
+  pip: 
+    name: boto
+
+- name: Launching EC2 instance for master
+  ec2_instance:
+    image_id: "{{ image_id_master }}"
+    aws_access_key:  "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+    key_name: "{{ key }}"
+    network:
+      assign_public_ip: true
+    instance_type: "{{ instance_type }}"
+    wait: yes
+    region: "{{ region }}"
+    security_group: "{{ sg_master }}"
+    vpc_subnet_id: "{{ vpc_master}}"
+    state: started
+    name: "kube-master"
+  register: master_details
+
+- name: Launching EC2 instance for slave1
+  ec2_instance:
+    image_id: "{{ image_id_slave1 }}"
+    aws_access_key:  "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+    key_name: "{{ key }}"
+    network:
+      assign_public_ip: true
+    instance_type: "{{ instance_type }}"
+    wait: yes
+    region: "{{ region }}"
+    security_group: "{{ sg_slave }}"
+    vpc_subnet_id: "{{ vpc_slave1 }}"
+    state: started
+    name: "kube-slave1"
+  register: slave1_details
+
+- name: Launching EC2 instance for slave2
+  ec2_instance:
+    image_id: "{{ image_id_slave2 }}"
+    aws_access_key:  "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+    key_name: "{{ key }}"
+    network:
+      assign_public_ip: true
+    instance_type: "{{ instance_type }}"
+    wait: yes
+    region: "{{ region }}"
+    security_group: "{{ sg_slave }}"
+    vpc_subnet_id: "{{ vpc_slave2 }}"
+    state: started
+    name: "kube-slave2"
+  register: slave2_details 
+

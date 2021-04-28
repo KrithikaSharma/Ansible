@@ -1,0 +1,30 @@
+---
+# vars file for aws_instances_launch
+
+# pem key name
+key: awskey
+
+#region id where u want to launch the cluster
+region: ap-south-1
+
+# instance type
+instance_type: t2.micro
+
+#inbound outbound rules assigned security group id for master node
+sg_master: sg-05f70d9b27766490a
+
+#security group id for slave/worker nodes
+sg_slave: sg-05f70d9b27766490a
+
+
+image_id_master: ami-0bcf5425cdc1d8a85
+image_id_slave1: ami-0bcf5425cdc1d8a85
+image_id_slave2: ami-0bcf5425cdc1d8a85
+vpc_master: subnet-c708728b
+vpc_slave1: subnet-c708728b
+vpc_slave2: subnet-c708728b
+
+# your access key
+access_key: ******************************
+secret_key: **************************
+
